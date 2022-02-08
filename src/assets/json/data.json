@@ -1,0 +1,60 @@
+[
+    {
+        "question": "A que medio de transporte te cambiarias",
+        "options": [
+            {
+                "value": 2.0979,
+                "min": 1.32,
+                "max": 2.525,
+                "text": "Sin coche"
+            },
+            {
+                "value": 2.0084,
+                "min": 0.47,
+                "max": 3.565,
+                "text": "Usar coche eléctrico"
+            },
+            {
+                "value": 0.729,
+                "min": 0.145,
+                "max": 1.23,
+                "text": "Usar coche hibrido"
+            },
+            {
+                "value": 0.0024,
+                "min": -1.265,
+                "max": 0.86,
+                "text": "Usar coche de hidrógeno"
+            },
+            {
+                "value": 0.994,
+                "min": 0.48,
+                "max": 1.23,
+                "text": "Usa solo transporte publico"
+            },
+            {
+                "value": 0.317,
+                "min": 0.08,
+                "max": 0.37,
+                "text": "Compartir coche con otra persona"
+            },
+            {
+                "value": 0.42,
+                "min": 0.09,
+                "max": 0.76,
+                "text": "Cambiar a un coche mas pequeño"
+            }
+        ]
+    },
+    {
+        "question": "¿Reducirías un vuelo de distancia media al año?",
+        "options": [
+            {
+                "value": 0.62,
+                "min": 0.39,
+                "max": 0.71,
+                "text": "Si"
+            }
+        ]
+    }
+]

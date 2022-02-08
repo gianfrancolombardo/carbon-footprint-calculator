@@ -1,0 +1,364 @@
+[
+    {
+        "question": "A que medio de transporte te cambiarias",
+        "options": [
+            {
+                "value": 2.0979,
+                "min": 1.32,
+                "max": 2.525,
+                "text": "Sin coche"
+            },
+            {
+                "value": 2.0084,
+                "min": 0.47,
+                "max": 3.565,
+                "text": "Usar coche eléctrico"
+            },
+            {
+                "value": 0.729,
+                "min": 0.145,
+                "max": 1.23,
+                "text": "Usar coche hibrido"
+            },
+            {
+                "value": 0.0024,
+                "min": -1.265,
+                "max": 0.86,
+                "text": "Usar coche de hidrógeno"
+            },
+            {
+                "value": 0.994,
+                "min": 0.48,
+                "max": 1.23,
+                "text": "Usa solo transporte publico"
+            },
+            {
+                "value": 0.317,
+                "min": 0.08,
+                "max": 0.37,
+                "text": "Compartir coche con otra persona"
+            },
+            {
+                "value": 0.42,
+                "min": 0.09,
+                "max": 0.76,
+                "text": "Cambiar a un coche mas pequeño"
+            }
+        ]
+    },
+    {
+        "question": "¿Reducirías un vuelo de distancia media al año?",
+        "options": [
+            {
+                "value": 0.62,
+                "min": 0.39,
+                "max": 0.71,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Reducirías un vuelo transatlántico (o similar) al año?",
+        "options": [
+            {
+                "value": 1.888,
+                "min": 1.175,
+                "max": 2.03,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Optarías por un trabajo 100% remoto?",
+        "options": [
+            {
+                "value": 0.4433,
+                "min": 0.135,
+                "max": 0.375,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "Cambiarias tu dieta por una:",
+        "options": [
+            {
+                "value": 0.91,
+                "min": 0.63,
+                "max": 1.09,
+                "text": "Vegana (nada de productos de origen animal)"
+            },
+            {
+                "value": 0.52,
+                "min": 0.28,
+                "max": 0.69,
+                "text": "Vegetariana (nada de carne ni pescado)"
+            },
+            {
+                "value": 0.22,
+                "min": 0.025,
+                "max": 0.3,
+                "text": "Reducir el consumo de productos de origen animal"
+            },
+            {
+                "value": 0.48,
+                "min": 0.13,
+                "max": 0.56,
+                "text": "Dejar de comer ternera, cerdo y cordero para solo comer pollo y similares"
+            }
+        ]
+    },
+    {
+        "question": "¿Seguirías una dieta nutricional correcta?",
+        "options": [
+            {
+                "value": 0.28,
+                "min": 0.14,
+                "max": 0.3,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Consumirías comida solo de origen local y de proximidad?",
+        "options": [
+            {
+                "value": 0.44,
+                "min": 0.01,
+                "max": 0.7,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "Al comer fuera de casa: ¿pedirías solo comida “eco-friendly”?",
+        "options": [
+            {
+                "value": 0.31,
+                "min": 0.31,
+                "max": 0.31,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Reducirías la cantidad de basura que generas relativa a tu alimentación?",
+        "options": [
+            {
+                "value": 0.32,
+                "min": 0.11,
+                "max": 0.43,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Reducirías la cantidad de envoltorios que generas?",
+        "options": [
+            {
+                "value": 0.16,
+                "min": 0.11,
+                "max": 0.21,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Cultivarías tu propia comida?",
+        "options": [
+            {
+                "value": 0.36,
+                "min": 0.36,
+                "max": 0.36,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Reducirías tu consumo de alcohol?",
+        "options": [
+            {
+                "value": 0.097,
+                "min": 0.085,
+                "max": 0.11,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Mejorarías tu cocina con electrodomésticos de alta eficiencia?",
+        "options": [
+            {
+                "value": 0.097,
+                "min": 0.085,
+                "max": 0.11,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Cambiarías tu compañía de electricidad a una 100% renovable?",
+        "options": [
+            {
+                "value": 1.46,
+                "min": 1.29,
+                "max": 1.71,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Calentarías tu casa usando solo una bomba de calor (como las del aire acondicionado)?",
+        "options": [
+            {
+                "value": 0.75,
+                "min": 0.25,
+                "max": 0.93,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Calentarías tu casa solo utilizando energía de origen renovable?",
+        "options": [
+            {
+                "value": 0.68,
+                "min": 0.52,
+                "max": 0.755,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Producirías tu propia energía renovable? (placas solares, etc)",
+        "options": [
+            {
+                "value": 1.322,
+                "min": 0.15,
+                "max": 2.6,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Te mudarías a una casa pasiva?",
+        "options": [
+            {
+                "value": 0.536,
+                "min": 0.355,
+                "max": 0.75,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Invertirías en mejorar el aislamiento térmico de tu casa?",
+        "options": [
+            {
+                "value": 0.175,
+                "min": 0.14,
+                "max": 0.45,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Ahorrarías en agua caliente?",
+        "options": [
+            {
+                "value": 0.3,
+                "min": 0.15,
+                "max": 0.45,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Reducirías la temperatura de las habitaciones en las que vives?",
+        "options": [
+            {
+                "value": 0.14,
+                "min": 0.045,
+                "max": 0.145,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Practicarías la covivienda (co-housing)?",
+        "options": [
+            {
+                "value": 0.34,
+                "min": 0.155,
+                "max": 0.45,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Renunciarías a tener un perro (u otra mascota)?",
+        "options": [
+            {
+                "value": 0.77,
+                "min": 0.04,
+                "max": 1.1,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Reducirías las compras que haces o comprarías cosas que duraran más?",
+        "options": [
+            {
+                "value": 0.102,
+                "min": 0.02,
+                "max": 0.16,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Reducirías tu consumo de ropa?",
+        "options": [
+            {
+                "value": 0.063,
+                "min": 0.02,
+                "max": 0.095,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Reducirías tu consumo de plástico?",
+        "options": [
+            {
+                "value": 0.07,
+                "min": 0.02,
+                "max": 0.04,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Reducirías tu consumo de papel?",
+        "options": [
+            {
+                "value": 0.0117,
+                "min": 0.01,
+                "max": 0.015,
+                "text": "Si"
+            }
+        ]
+    },
+    {
+        "question": "¿Reciclarías?",
+        "options": [
+            {
+                "value": 0.0575,
+                "min": 0.005,
+                "max": 0.11,
+                "text": "Si"
+            }
+        ]
+    }
+]

@@ -1,0 +1,13 @@
+[
+    {
+        "text":"Km vehículo promedio",
+        "icon":"fa-route",
+        "value": 4020
+    },
+   
+    {
+        "text":"Smartphones cargados",
+        "icon":"fa-mobile",
+        "value": 121643
+    }
+]
