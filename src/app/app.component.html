@@ -12,7 +12,7 @@
 
         <div>
           <figure *ngIf="footprint.total == 0" [@fadeOutUpOnLeave]="{ value: '', params: {duration: 100} }">
-            <img src="assets/img/info_graphic_1.svg" alt="" class="img-fluid" width="270" height="270">
+            <img src="assets/img/info_graphic_3.jpg" alt="" class="img-fluid" width="270" height="270">
           </figure>
           <h2 class="mb-0">#TuHuella</h2>
           <h5 class="our-footprint">Nuestra Huella</h5>
@@ -52,9 +52,10 @@
             <div *ngIf="footprint.total != 0" [@fadeInUpOnEnter]>
               <h6>¡Se ha repartido la cuenta!</h6>
               <p>Este es el promedio de toneladas de CO2 de tu pais por habitantes.
-                  <a href="https://en.wikipedia.org/wiki/List_of_countries_by_greenhouse_gas_emissions_per_person" class="ml-2" target="_blank">
-                    <i class="fas fa-info-circle text-muted"></i>
-                  </a>
+                <a href="https://en.wikipedia.org/wiki/List_of_countries_by_greenhouse_gas_emissions_per_person"
+                  class="ml-2" target="_blank">
+                  <i class="fas fa-info-circle text-muted"></i>
+                </a>
               </p>
 
               <div class="col-6 offset-3">
@@ -79,12 +80,18 @@
                     <input type="radio" name="{{item.question}}" value="{{option.value}}" class="required"
                       (click)="select_option(current_step, option)">
                     <span class="checkmark"></span>
+
+                    <span class="animated-value" [@ShowDataAnimation]
+                      *ngIf="current_step + option.value==selected_option">-{{ get_percent(option.value) | number:'1.0-0'}}<small>%</small></span>
                   </label>
 
                   <label class="container_radio version_2" *ngIf="item.options.length == 1">Me lo pensare 🤔
                     <input type="radio" name="{{item.question}}" value="0" class="required"
                       (click)="select_option(current_step, {value:0, max:0, min:0})">
                     <span class="checkmark"></span>
+
+                    <span class="animated-value red" [@ShowDataAnimation]
+                      *ngIf="current_step + 0==selected_option">-0<small>%</small></span>
                   </label>
 
                 </div>
@@ -108,10 +115,12 @@
                   <div class="card-body text-success text-center">
                     <div class="row">
                       <div class="col-6">
-                        <h1 class="card-title text-success my-0">{{footprint.diff_per | number:'1.0-0' }}<small class="f-14">%</small></h1>
+                        <h1 class="card-title text-success my-0">{{footprint.diff_per | number:'1.0-0' }}<small
+                            class="f-14">%</small></h1>
                       </div>
                       <div class="col-6 border-left border-success">
-                        <h1 class="card-title text-success my-0">{{footprint.diff | number:'1.0-1'}}<small class="f-14">ToCO&#8322;</small></h1>
+                        <h1 class="card-title text-success my-0">{{footprint.diff | number:'1.0-1'}}<small
+                            class="f-14">ToCO&#8322;</small></h1>
                       </div>
                     </div>
                   </div>
@@ -119,12 +128,11 @@
               </div>
             </div>
 
-            <a href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator" class="float-right mt-4" target="_blank">
+            <a href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator" class="float-right mt-4"
+              target="_blank">
               <i class="fas fa-info-circle text-muted mt-2"></i>
             </a>
             <h4 class="mt-4 mb-3">Ahorro equivalente</h4>
-            
-
             <div class="row">
               <div class="col-12">
                 <div class="card-deck">
@@ -148,12 +156,39 @@
                 </div>
               </div>
             </div>
+
+            <hr>
+            <h5>Comparte tu compromiso</h5>
+            <p>Cada accion de cada persona cuenta</p>
             <div class="row">
               <div class="col">
-               
+                <a class="btn btn-info twitter" target="_blank"
+                  href="https://twitter.com/intent/tweet?text=Reducir%C3%A9+20%25+mi+huella+de+carbono+con+solo+3+acciones.+%C2%BFY+tu%3F%0D%0A&hashtags=TuHuellaNuestraHuella">
+                  <i class="fab fa-twitter"></i>
+                  Tweet
+                </a>
+
+                <!--<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a>-->
               </div>
             </div>
 
+
+            <h5 class="mt-5">Fuentes</h5>
+            <p class="mb-3">Entendamos por que estos numeros</p>
+            <div class="row">
+              <div class="col">
+                <ul>
+                  <li><a target="_blank" href="https://iopscience.iop.org/article/10.1088/1748-9326/ab8589">Metaestudio
+                      de potenciales mitigaciones del cambio climatico | IOPScience</a></li>
+                  <li><a target="_blank"
+                      href="https://en.wikipedia.org/wiki/List_of_countries_by_greenhouse_gas_emissions_per_person">Emisiones
+                      de gases de efecto invernadero por paices per capital | Wikipedia</a></li>
+                  <li><a target="_blank"
+                      href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator">Equivalencias de gases
+                      de efecto invernadero | EPA</a></li>
+                </ul>
+              </div>
+            </div>
 
           </div>
 
