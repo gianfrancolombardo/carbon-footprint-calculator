@@ -1,27 +1,48 @@
-# CarbonFootprint
+# CarbonFootprint Calculator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
+Calcula cuanto afectan tus acciones a la huella de carbono
 
-## Development server
+Esta calculadora pretende consientizar de la forma mas facil posible como nuestras acciones del dia a dia tienen un impacto en la huella de carbono que dejamos en el planeta y de este modo accionar para realentizar la misma.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Data
 
-## Code scaffolding
+El sistema funciona con tres base de datos en formato Json
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 1. Questions data
+Base de datos principal que contiene preguntas y opciones de respuesta (acciones). Estas ultimas asosiada al valor en ToCO₂ (Toneladas de dioxido de carbono) que representa cada accion. [Fuente](https://iopscience.iop.org/article/10.1088/1748-9326/ab8589)
 
-## Build
+```json
+{
+    "question": "Question 1?",
+    "options": [
+        {
+            "value": 2.0979,
+            "min": 1.32,
+            "max": 2.525,
+            "text": "Action 1"
+        },
+        ...
+    ]
+}
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 2. Emissions per capita data
+Este archivo contiene la relacion entre Pais y Toneladas de CO₂ por habitante. [Fuente](https://en.wikipedia.org/wiki/List_of_countries_by_greenhouse_gas_emissions_per_person)
 
-## Running unit tests
+```json
+{
+    "name": "Spain",
+    "value": 6.99
+}
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 3. Equivalence of CO₂
+Este archivo es utilizado para pragmatisar y ayudar a visualizar a que equivaldria 1 ToCO₂. Es un listado de equivalencias y su coeficiente multiplicador. [Fuente](https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator)
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```json
+{
+    "text":"Km vehículo promedio",
+    "value": 4020,
+    "icon":"fa-route"
+}
+```

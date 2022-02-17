@@ -44,20 +44,16 @@ export class AppComponent {
   }
   actions = 0
   footprint_subject = new Subject<any>();
+  answers = new Map()
   next_enable = false
   selected_option = 0
-  answers = new Map()
+  toogle_modal_value = false
+  
 
 
 
   constructor(private answersService: AnswersService) {
-    //console.log(DataJson)
-    /*this.answersService.save_answers({"name":"gian"}).then(() => {
-      console.log('Documento creado exitósamente!');
-    }, (error: any) => {
-      console.error(error);
-    });*/
-    this.answersService.anonymous_login();
+    this.answersService.anonymous_signin();
   }
 
   set_country($event: any) {
@@ -80,6 +76,10 @@ export class AppComponent {
     }
 
     this.answersService.save_answers([...this.answers.values()], this.footprint)
+
+    // Re-signin just for get new UID
+    if(this.is_finished())
+      this.answersService.signout()
   }
 
   prev() {
@@ -137,6 +137,11 @@ export class AppComponent {
 
   get_percent(value: any) {
     return (value * 100) / this.footprint.total;
+  }
+
+  toogle_modal(){
+    this.toogle_modal_value = !this.toogle_modal_value
+
   }
 
 }

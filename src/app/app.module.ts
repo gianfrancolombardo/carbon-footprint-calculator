@@ -20,8 +20,8 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
 
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule, // firestore
-    AngularFireAuthModule, // auth
+    AngularFirestoreModule, 
+    AngularFireAuthModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]

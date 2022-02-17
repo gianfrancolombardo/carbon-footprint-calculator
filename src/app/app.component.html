@@ -6,13 +6,20 @@
       <div class="content-left-wrapper">
         <div id="social">
           <ul>
-            <li><a href="#0"><i class="icon-linkedin"></i></a></li>
+            <li>
+              <a href="https://github.com/gianfrancolombardo/carbon-footprint-calculator" target="_blank">
+                <i class="fab fa-github"></i></a>
+            </li>
+            <li class="ml-3">
+              <a href="/#" (click)="toogle_modal()">
+                <i class="fa fa-info-circle"></i></a>
+            </li>
           </ul>
         </div>
 
         <div>
           <figure *ngIf="footprint.total == 0" [@fadeOutUpOnLeave]="{ value: '', params: {duration: 100} }">
-            <img src="assets/img/info_graphic_3.jpg" alt="" class="img-fluid" width="270" height="270">
+            <img src="assets/img/info_graphic_1.svg" alt="" class="img-fluid" width="100%">
           </figure>
           <h2 class="mb-0">#TuHuella</h2>
           <h5 class="our-footprint">Nuestra Huella</h5>
@@ -82,7 +89,8 @@
                     <span class="checkmark"></span>
 
                     <span class="animated-value" [@ShowDataAnimation]
-                      *ngIf="current_step + option.value==selected_option">-{{ get_percent(option.value) | number:'1.0-0'}}<small>%</small></span>
+                      *ngIf="current_step + option.value==selected_option">-{{ get_percent(option.value) |
+                      number:'1.0-0'}}<small>%</small></span>
                   </label>
 
                   <label class="container_radio version_2" *ngIf="item.options.length == 1">Me lo pensare 🤔
@@ -101,14 +109,15 @@
 
           <div class="step" *ngIf="is_finished()">
 
+            <div [@fadeInUpOnEnter]>
+              <h2 *ngIf="get_level() == 1">Se que puedes hacerlo mejor</h2>
+              <h2 *ngIf="get_level() == 2">Es un buen comienzo</h2>
+              <h2 *ngIf="get_level() == 3">Suena bien!</h2>
+              <h2 *ngIf="get_level() == 4">Necesitamos mas personas como tu</h2>
+              <p>Es un compromiso. Con solo <strong>{{actions}}</strong> accion<span *ngIf="actions > 1">es</span></p>
+            </div>
 
-            <h2 *ngIf="get_level() == 1">Se que puedes hacerlo mejor</h2>
-            <h2 *ngIf="get_level() == 2">Es un buen comienzo</h2>
-            <h2 *ngIf="get_level() == 3">Suena bien!</h2>
-            <h2 *ngIf="get_level() == 4">Necesitamos mas personas como tu</h2>
-            <p>Es un compromiso. Con solo <strong>{{actions}}</strong> accion<span *ngIf="actions > 1">es</span></p>
-
-            <div class="row">
+            <div class="row" [@fadeInUpOnEnter]="{ value: '', params: { delay: 150 } }">
               <div class="col-12">
                 <div class="card border-success mb-3">
                   <div class="card-header bg-transparent border-success text-center">Reduciras tu huella</div>
@@ -128,68 +137,47 @@
               </div>
             </div>
 
-            <a href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator" class="float-right mt-4"
-              target="_blank">
-              <i class="fas fa-info-circle text-muted mt-2"></i>
-            </a>
-            <h4 class="mt-4 mb-3">Ahorro equivalente</h4>
-            <div class="row">
-              <div class="col-12">
-                <div class="card-deck">
+            <div [@fadeInUpOnEnter]="{ value: '', params: { delay: 200 } }">
+              <a href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator" class="float-right"
+                target="_blank">
+                <i class="fas fa-info-circle text-muted mt-2"></i>
+              </a>
+              <h4 class="mt-4 mb-3">Ahorro equivalente</h4>
+              <div class="row">
+                <div class="col-12">
+                  <div class="card-deck">
 
-                  <div class="card mb-4" *ngFor="let item of equivalents">
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-8">
-                          <h4 class="mb-0">{{ footprint.diff * item.value | number:'1.0-0'}}</h4>
-                          <span class="f-12">{{item.text}}</span>
-                        </div>
-                        <div class="col-4 pl-0">
-                          <div class="circle-2 text-primary rounded-circle">
-                            <i class="fas {{item.icon}}"></i>
+                    <div class="card mb-4" *ngFor="let item of equivalents">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-8">
+                            <h4 class="mb-0">{{ footprint.diff * item.value | number:'1.0-0'}}</h4>
+                            <span class="f-12">{{item.text}}</span>
+                          </div>
+                          <div class="col-4 pl-0">
+                            <div class="circle-2 text-primary rounded-circle">
+                              <i class="fas {{item.icon}}"></i>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
+                  </div>
                 </div>
               </div>
             </div>
 
-            <hr>
-            <h5>Comparte tu compromiso</h5>
-            <p>Cada accion de cada persona cuenta</p>
-            <div class="row">
-              <div class="col">
-                <a class="btn btn-info twitter" target="_blank"
-                  href="https://twitter.com/intent/tweet?text=Reducir%C3%A9+20%25+mi+huella+de+carbono+con+solo+3+acciones.+%C2%BFY+tu%3F%0D%0A&hashtags=TuHuellaNuestraHuella">
-                  <i class="fab fa-twitter"></i>
-                  Tweet
-                </a>
-
-                <!--<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a>-->
-              </div>
+            <div [@fadeInUpOnEnter]="{ value: '', params: { delay: 250 } }">
+              <hr>
+              <a class="btn btn-info twitter float-right" target="_blank"
+                    href="https://twitter.com/intent/tweet?text=Reducir%C3%A9+20%25+mi+huella+de+carbono+con+solo+3+acciones.+%C2%BFY+tu%3F%0D%0A&hashtags=TuHuellaNuestraHuella">
+                    <i class="fab fa-twitter"></i>
+                    Tweet
+                  </a>
+              <h5>Comparte tu compromiso</h5>
+              <p>Cada accion de cada persona cuenta</p>
             </div>
-
-
-            <h5 class="mt-5">Fuentes</h5>
-            <p class="mb-3">Entendamos por que estos numeros</p>
-            <div class="row">
-              <div class="col">
-                <ul>
-                  <li><a target="_blank" href="https://iopscience.iop.org/article/10.1088/1748-9326/ab8589">Metaestudio
-                      de potenciales mitigaciones del cambio climatico | IOPScience</a></li>
-                  <li><a target="_blank"
-                      href="https://en.wikipedia.org/wiki/List_of_countries_by_greenhouse_gas_emissions_per_person">Emisiones
-                      de gases de efecto invernadero por paices per capital | Wikipedia</a></li>
-                  <li><a target="_blank"
-                      href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator">Equivalencias de gases
-                      de efecto invernadero | EPA</a></li>
-                </ul>
-              </div>
-            </div>
-
           </div>
 
           <!--<div class="step">
@@ -228,8 +216,8 @@
           </div>-->
 
           <div id="bottom-wizard" *ngIf="current_step != 0 && !is_finished()">
-            <button type="button" class="backward mr-2" (click)="prev()" *ngIf="current_step > 1">Prev</button>
-            <button type="button" class="forward" (click)="next()" [disabled]="!next_enable">Next</button>
+            <button type="button" class="backward mr-2" (click)="prev()" *ngIf="current_step > 1">Previo</button>
+            <button type="button" class="forward" (click)="next()" [disabled]="!next_enable">Siguiente</button>
           </div>
           <!-- /bottom-wizard -->
         </form>
@@ -241,3 +229,39 @@
   <!-- /row-->
 </div>
 <!-- /container-fluid -->
+
+
+<div class="modal fadeIn" tabindex="-1" [class.d-block]="toogle_modal_value">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title">Información</h6>
+        <button type="button" class="close" (click)="toogle_modal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Lo mas importante... Fuentes!</h5>
+        <p class="mb-3">Entendamos de donde salen estos numeros</p>
+        <ul class="mb-5">
+          <li><a target="_blank" href="https://iopscience.iop.org/article/10.1088/1748-9326/ab8589">Metaestudio
+              de potenciales mitigaciones del cambio climatico | IOPScience</a></li>
+          <li><a target="_blank"
+              href="https://en.wikipedia.org/wiki/List_of_countries_by_greenhouse_gas_emissions_per_person">Emisiones
+              de gases de efecto invernadero por paices per capital | Wikipedia</a></li>
+          <li><a target="_blank" href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator">Equivalencias
+              de gases
+              de efecto invernadero | EPA</a></li>
+        </ul>
+
+        <h5>¿Sin tiempo para leer?</h5>
+        <p>Dejemos que el gran Crespo lo explique</p>
+        <iframe width="468" height="264" src="https://www.youtube.com/embed/wNQ5wvGmnEk" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+
+    </div>
+  </div>
+</div>

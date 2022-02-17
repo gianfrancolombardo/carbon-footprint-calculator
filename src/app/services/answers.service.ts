@@ -16,13 +16,19 @@ export class AnswersService {
     });
   }
 
-  public anonymous_login() {
+  public anonymous_signin() {
     this.fireauth.signInAnonymously()
       .then((user) => {
         this.auth_state = user
-        console.log("auth login", this.auth_state)
       })
       .catch(error => console.log(error));
+  }
+
+  public signout(){
+    this.fireauth.signOut()
+    .then(()=>{
+      this.anonymous_signin()
+    });
   }
 
   public get_uid() {
@@ -31,7 +37,8 @@ export class AnswersService {
 
   public save_country(data:any) {
     return this.firestore.collection('answers').doc(this.get_uid()).set({
-      country: data
+      country: data,
+      date: new Date()
     })
       .then(() => {
         console.log("Country successfully written!");

@@ -2,45 +2,48 @@
 /* Your custom styles below */
 /*============================================================================================*/
 
-.bg-warning.min{
-    background-color: #dca501!important;
+.bg-warning.min {
+    background-color: #dca501 !important;
 }
-.bg-warning.max{
-    background-color: rgb(255 193 7 / 30%)!important;
+
+.bg-warning.max {
+    background-color: rgb(255 193 7 / 30%) !important;
 }
-button[disabled], button[disabled]:hover{
+
+button[disabled], button[disabled]:hover {
     color: #fff;
     background-color: #6c757d;
     opacity: .65;
 }
-button[disabled]:hover{
+
+button[disabled]:hover {
     cursor: default;
 }
 
-.our-footprint{
+.our-footprint {
     color: #ffffffa6;
     margin-bottom: 20px;
     margin-top: -5px;
 }
 
-.f-14{
+.f-14 {
     font-size: 14px;
 }
 
-.f-12{
+.f-12 {
     font-size: 12px;
 }
 
-.circle{
+.circle {
     border-radius: 50%;
     padding: 10px;
-    width:60px;
+    width: 60px;
     height: 60px;
     display: inline-block;
     margin-top: -10px;
 }
 
-.circle-2{
+.circle-2 {
     display: inline-block;
     width: 50px;
     height: 50px;
@@ -51,18 +54,19 @@ button[disabled]:hover{
     background-color: #007bff4f
 }
 
-.twitter{
+.twitter {
     background-color: #1d9bf0;
 }
+
 .twitter:hover {
     background-color: #0c7abf;
 }
 
-li{
+li {
     margin-bottom: 5px;
 }
 
-.animated-value{
+.animated-value {
     float: right;
     opacity: 0;
     font-size: 20px;
@@ -70,6 +74,36 @@ li{
     margin-top: -5px;
 }
 
-.animated-value.red{
+.animated-value.red {
     color: #e74c3c;
+}
+
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 500ms;
+    animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
