@@ -1,15 +1,15 @@
 # CarbonFootprint Calculator
 
-Calcula cuanto afectan tus acciones a la huella de carbono
+Calculate how much your actions affect the carbon footprint
 
-Esta calculadora pretende consientizar de la forma mas facil posible como nuestras acciones del dia a dia tienen un impacto en la huella de carbono que dejamos en el planeta y de este modo accionar para realentizar la misma.
+This calculator aims to raise awareness in the easiest way possible how our day-to-day actions have an impact on the carbon footprint we leave on the planet and thus take action to slow it down.
 
 ## Data
 
-El sistema funciona con tres base de datos en formato Json
+The system works with three databases in Json format
 
 ### 1. Questions data
-Base de datos principal que contiene preguntas y opciones de respuesta (acciones). Estas ultimas asosiada al valor en ToCO₂ (Toneladas de dioxido de carbono) que representa cada accion. [Fuente](https://iopscience.iop.org/article/10.1088/1748-9326/ab8589)
+Main database containing questions and answer options (actions). The latter associated with the minimum, maximum and value in ToCO₂ (Tons of carbon dioxide) that each share represents. [Source](https://iopscience.iop.org/article/10.1088/1748-9326/ab8589)
 
 ```json
 {
@@ -27,7 +27,7 @@ Base de datos principal que contiene preguntas y opciones de respuesta (acciones
 ```
 
 ### 2. Emissions per capita data
-Este archivo contiene la relacion entre Pais y Toneladas de CO₂ por habitante. [Fuente](https://en.wikipedia.org/wiki/List_of_countries_by_greenhouse_gas_emissions_per_person)
+This file contains the relationship between Country and Tons of CO₂ per capita. [Source](https://en.wikipedia.org/wiki/List_of_countries_by_greenhouse_gas_emissions_per_person)
 
 ```json
 {
@@ -37,11 +37,11 @@ Este archivo contiene la relacion entre Pais y Toneladas de CO₂ por habitante.
 ```
 
 ### 3. Equivalence of CO₂
-Este archivo es utilizado para pragmatisar y ayudar a visualizar a que equivaldria 1 ToCO₂. Es un listado de equivalencias y su coeficiente multiplicador. [Fuente](https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator)
+This file is used to pragmatize and help visualize what 1 ToCO₂ would equal. It is a list of equivalences and their multiplier coefficient. [Source](https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator)
 
 ```json
 {
-    "text":"Km vehículo promedio",
+    "text":"Average vehicle Km",
     "value": 4020,
     "icon":"fa-route"
 }
