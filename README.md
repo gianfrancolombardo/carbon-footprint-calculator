@@ -21,7 +21,6 @@ Main database containing questions and answer options (actions). The latter asso
             "max": 2.525,
             "text": "Action 1"
         },
-        ...
     ]
 }
 ```
