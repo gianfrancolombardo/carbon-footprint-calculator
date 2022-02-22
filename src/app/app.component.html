@@ -53,6 +53,7 @@
                   <option *ngFor="let country of countries" value="{{country.value}}">{{country.name}}</option>
 
                 </select>
+
               </div>
             </div>
 
@@ -216,7 +217,7 @@
           </div>-->
 
           <div id="bottom-wizard" *ngIf="current_step != 0 && !is_finished()">
-            <button type="button" class="backward mr-2" (click)="prev()" *ngIf="current_step > 1">Previo</button>
+            <button type="button" class="backward mr-2" (click)="prev()" *ngIf="current_step > 1"><i class="fa fa-arrow-left"></i></button>
             <button type="button" class="forward" (click)="next()" [disabled]="!next_enable">Siguiente</button>
           </div>
           <!-- /bottom-wizard -->
