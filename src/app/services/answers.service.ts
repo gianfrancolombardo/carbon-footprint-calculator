@@ -12,7 +12,7 @@ export class AnswersService {
   constructor(private firestore: AngularFirestore, private fireauth: AngularFireAuth) {
     this.fireauth.authState.subscribe((auth) => {
       this.auth_state = auth
-      console.log("auth state", this.auth_state)
+      //console.log("auth state", this.auth_state)
     });
   }
 
@@ -21,7 +21,7 @@ export class AnswersService {
       .then((user) => {
         this.auth_state = user
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log("Error signin", error));
   }
 
   public signout(){

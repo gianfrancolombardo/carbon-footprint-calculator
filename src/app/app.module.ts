@@ -9,11 +9,15 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AppComponent } from './app.component';
 import { ProgressComponent } from './shared/progress/progress.component';
 import { environment } from '../environments/environment';
+import { AbsPipe } from './pipes/abs.pipe';
+import { KiloPipe } from './pipes/kilo.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProgressComponent
+    ProgressComponent,
+    AbsPipe,
+    KiloPipe
   ],
   imports: [
     BrowserModule,

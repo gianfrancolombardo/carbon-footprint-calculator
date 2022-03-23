@@ -9,5 +9,18 @@
         "text":"Smartphones cargados",
         "icon":"fa-mobile",
         "value": 121643
+    },
+
+    {
+        "text":"Electricidad de un hogar anual",
+        "icon":"fa-bolt",
+        "value": 0.182
+    },
+
+    {
+        "text":"Barriles de petróleo",
+        "icon":"fa-database",
+        "value": 2.3
     }
+
 ]

@@ -3,7 +3,7 @@
 
     <!-- Left -->
     <div class="col-xl-4 col-lg-4 content-left">
-      <div class="content-left-wrapper">
+      <div class="content-left-wrapper" [class.inited]="footprint.total > 0">
         <div id="social">
           <ul>
             <li>
@@ -21,45 +21,53 @@
           <figure *ngIf="footprint.total == 0" [@fadeOutUpOnLeave]="{ value: '', params: {duration: 100} }">
             <img src="assets/img/info_graphic_1.svg" alt="" class="img-fluid" width="100%">
           </figure>
-          <h2 class="mb-0">#TuHuella</h2>
-          <h5 class="our-footprint">Nuestra Huella</h5>
-          <p>Calcula como afectan tus acciones a tu huella de carbono</p>
 
-          <div *ngIf="footprint.total > 0" [@fadeInUpOnEnter]>
+          <div>
+            <h2 class="mb-0">#TuHuella</h2>
+            <h5 class="our-footprint">Nuestra Huella</h5>
+            <p>Calcula cómo afectan tus acciones a tu huella de carbono</p>
+          </div>
+          <div *ngIf="footprint.total > 0" [@fadeInUpOnEnter] class="width-full">
             <app-progress [footprint_subject]="footprint_subject" [footprint]="footprint"></app-progress>
           </div>
         </div>
 
 
 
-        <div class="copy">Made with ❤️ by Glombardo</div>
+        <div class="copy">Made with ❤️ by <a href="https://www.linkedin.com/in/gianfranco-lombardo/"
+            target="_blank">Glombardo</a></div>
       </div>
 
     </div>
 
     <!-- Right -->
     <div class="col-xl-8 col-lg-8 content-right">
+
+      <div class="progress mini">
+        <div class="progress-bar" [style.width.%]="get_progress()"></div>
+      </div>
+
       <div id="wizard_container">
         <form method="post">
 
           <div class="step" *ngIf="current_step == 0">
-            <h2 class="section_title">¿Donde estas?</h2>
+            <h2 class="section_title">¿Dónde estás?</h2>
             <h3 class="main_question">El problema es de todos, pero hagámoslo práctico</h3>
 
             <div class="form-group add_bottom_30">
               <div class="styled-select">
                 <select class="form-control" (change)="set_country($event)">
-                  <option value="">Elige un pais</option>
+                  <option value="">Elige un país</option>
                   <option *ngFor="let country of countries" value="{{country.value}}">{{country.name}}</option>
-
                 </select>
+
 
               </div>
             </div>
 
             <div *ngIf="footprint.total != 0" [@fadeInUpOnEnter]>
               <h6>¡Se ha repartido la cuenta!</h6>
-              <p>Este es el promedio de toneladas de CO2 de tu pais por habitantes.
+              <p>Este es el promedio de toneladas de CO2 de tu país por habitantes.
                 <a href="https://en.wikipedia.org/wiki/List_of_countries_by_greenhouse_gas_emissions_per_person"
                   class="ml-2" target="_blank">
                   <i class="fas fa-info-circle text-muted"></i>
@@ -73,7 +81,7 @@
               </div>
 
               <div class="col text-center">
-                <button type="button" class="forward" (click)="start()">Reduscamos tu huella</button>
+                <button type="button" class="forward" (click)="start()">Reduzcamos tu huella</button>
               </div>
             </div>
           </div>
@@ -115,13 +123,19 @@
               <h2 *ngIf="get_level() == 2">Es un buen comienzo</h2>
               <h2 *ngIf="get_level() == 3">Suena bien!</h2>
               <h2 *ngIf="get_level() == 4">Necesitamos mas personas como tu</h2>
-              <p>Es un compromiso. Con solo <strong>{{actions}}</strong> accion<span *ngIf="actions > 1">es</span></p>
+              <p>Es un compromiso.
+
+                Con solo
+                <span class="badge badge-success f-14">
+                  <strong>{{actions}}</strong> accion<span *ngIf="actions > 1">es</span>
+                </span>
+              </p>
             </div>
 
             <div class="row" [@fadeInUpOnEnter]="{ value: '', params: { delay: 150 } }">
               <div class="col-12">
                 <div class="card border-success mb-3">
-                  <div class="card-header bg-transparent border-success text-center">Reduciras tu huella</div>
+                  <div class="card-header bg-transparent border-success text-center">Reducirás tu huella</div>
                   <div class="card-body text-success text-center">
                     <div class="row">
                       <div class="col-6">
@@ -139,23 +153,26 @@
             </div>
 
             <div [@fadeInUpOnEnter]="{ value: '', params: { delay: 200 } }">
-              <a href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator" class="float-right"
+              <!--<a href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator" class="float-right"
                 target="_blank">
                 <i class="fas fa-info-circle text-muted mt-2"></i>
-              </a>
+              </a>-->
+              <!--<a class="float-right" href="#/" (click)="shuffled_equivalents()">
+                <i class="fas fa-plus-circle text-muted mt-2"></i>
+              </a>-->
               <h4 class="mt-4 mb-3">Ahorro equivalente</h4>
               <div class="row">
                 <div class="col-12">
                   <div class="card-deck">
 
-                    <div class="card mb-4" *ngFor="let item of equivalents">
+                    <div class="card mb-4" *ngFor="let item of equivalents_shuffled">
                       <div class="card-body">
                         <div class="row">
                           <div class="col-8">
-                            <h4 class="mb-0">{{ footprint.diff * item.value | number:'1.0-0'}}</h4>
+                            <h4 class="mb-0">{{ footprint.diff * item.value | kilo}}</h4>
                             <span class="f-12">{{item.text}}</span>
                           </div>
-                          <div class="col-4 pl-0">
+                          <div class="col-4 pl-0 text-center">
                             <div class="circle-2 text-primary rounded-circle">
                               <i class="fas {{item.icon}}"></i>
                             </div>
@@ -172,64 +189,36 @@
             <div [@fadeInUpOnEnter]="{ value: '', params: { delay: 250 } }">
               <hr>
               <a class="btn btn-info twitter float-right" target="_blank"
-                    href="https://twitter.com/intent/tweet?text=Reducir%C3%A9+20%25+mi+huella+de+carbono+con+solo+3+acciones.+%C2%BFY+tu%3F%0D%0A&hashtags=TuHuellaNuestraHuella">
-                    <i class="fab fa-twitter"></i>
-                    Tweet
-                  </a>
+                href="https://twitter.com/intent/tweet?text=Reducir%C3%A9+{{ footprint.diff_per | number:'1.0-0' }}%25+mi+huella+de+carbono+con+solo+{{ actions }}+acciones.+%C2%BFY+tu%3F&hashtags=TuHuellaNuestraHuella&url=https%3A%2F%2Ftuhuella-nuestrahuella.org">
+                <i class="fab fa-twitter"></i>
+                Tweet
+              </a>
               <h5>Comparte tu compromiso</h5>
-              <p>Cada accion de cada persona cuenta</p>
+              <p>Cada acción de cada persona cuenta</p>
             </div>
           </div>
 
-          <!--<div class="step">
-            <h2 class="section_title">Presentation</h2>
-            <h3 class="main_question">Personal info</h3>
-            <div class="form-group add_top_30">
-              <label for="name">First and Last Name</label>
-              <input type="text" name="name" id="name" class="form-control required"
-                onchange="getVals(this, 'name_field');">
-            </div>
-            <label>Gender</label>
-            <div class="form-group radio_input">
-              <label class="container_radio mr-3">Male
-                <input type="radio" name="gender" value="Male" class="required">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container_radio">Female
-                <input type="radio" name="gender" value="Female" class="required">
-                <span class="checkmark"></span>
-              </label>
-            </div>
-            <div class="form-group">
-              <label class="container_radio version_2">Full time availability
-                <input type="radio" name="availability" value="Full-time" class="required">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container_radio version_2">Part time availability
-                <input type="radio" name="availability" value="Part-time" class="required">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container_radio version_2">Freelance / Contract availability
-                <input type="radio" name="availability" value="Freelance-Contract" class="required">
-                <span class="checkmark"></span>
-              </label>
-            </div>
-          </div>-->
-
           <div id="bottom-wizard" *ngIf="current_step != 0 && !is_finished()">
-            <button type="button" class="backward mr-2" (click)="prev()" *ngIf="current_step > 1"><i class="fa fa-arrow-left"></i></button>
+            <button type="button" class="backward mr-2" (click)="prev()" *ngIf="current_step > 1"><i
+                class="fa fa-arrow-left"></i></button>
             <button type="button" class="forward" (click)="next()" [disabled]="!next_enable">Siguiente</button>
           </div>
           <!-- /bottom-wizard -->
         </form>
       </div>
-      <!-- /Wizard container -->
+
     </div>
-    <!-- /content-right-->
+
+    <footer class="footer d-block d-lg-none">
+      <div>Made with ❤️ by <a href="https://www.linkedin.com/in/gianfranco-lombardo/" target="_blank">Glombardo</a>
+      </div>
+    </footer>
+
   </div>
-  <!-- /row-->
 </div>
-<!-- /container-fluid -->
+
+
+
 
 
 <div class="modal fadeIn" tabindex="-1" [class.d-block]="toogle_modal_value">
@@ -242,27 +231,57 @@
         </button>
       </div>
       <div class="modal-body">
-        <h5>Lo mas importante... Fuentes!</h5>
-        <p class="mb-3">Entendamos de donde salen estos numeros</p>
+        <div class="row mb-2">
+          <div class="col-2">
+            <div class="circle-2 text-primary rounded-circle">
+              <i class="fas fa-book"></i>
+            </div>
+          </div>
+          <div class="col-10 pl-0">
+            <h5 class="mb-0">Lo más importante... Fuentes!</h5>
+            <p class="mb-3">Entendamos de donde salen estos numeros</p>
+          </div>
+        </div>
+
         <ul class="mb-5">
           <li><a target="_blank" href="https://iopscience.iop.org/article/10.1088/1748-9326/ab8589">Metaestudio
-              de potenciales mitigaciones del cambio climatico | IOPScience</a></li>
+              de potenciales mitigaciones del cambio climático | IOPScience</a></li>
           <li><a target="_blank"
               href="https://en.wikipedia.org/wiki/List_of_countries_by_greenhouse_gas_emissions_per_person">Emisiones
-              de gases de efecto invernadero por paices per capital | Wikipedia</a></li>
+              de gases de efecto invernadero por países per cápita | Wikipedia</a></li>
           <li><a target="_blank" href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator">Equivalencias
               de gases
               de efecto invernadero | EPA</a></li>
         </ul>
 
-        <h5>¿Sin tiempo para leer?</h5>
-        <p>Dejemos que el gran Crespo lo explique</p>
-        <iframe width="468" height="264" src="https://www.youtube.com/embed/wNQ5wvGmnEk" title="YouTube video player"
+        <div class="row mb-2">
+          <div class="col-2">
+            <div class="circle-2 text-primary rounded-circle">
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+          <div class="col-10 pl-0">
+            <h5 class="mb-0">¿Sin tiempo para leer?</h5>
+            <p class="mb-3">Dejemos que el gran Crespo lo explique</p>
+          </div>
+        </div>
+
+        <iframe width="100%" height="264" src="https://www.youtube.com/embed/wNQ5wvGmnEk" title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
       </div>
 
     </div>
+  </div>
+</div>
+
+<div *ngIf="show_cookies" [@fadeInUpOnEnter]>
+  <div class="cookies-message alert alert-secondary">
+    <h5>Esta pagina usa <i>galletas</i> 🍪</h5>
+    <p>Solamente las usamos para entender cómo interactúas con nuestra web. En NINGÚN caso almacenamos datos personales
+    </p>
+    <a href="#" class="btn btn-primary btn-sm mr-2" (click)="set_cookies(true)">Vengan esas cookies</a>
+    <a href="#" class="btn btn-outline-secondary btn-sm" (click)="set_cookies(false)">Nop, no gracias</a>
   </div>
 </div>
