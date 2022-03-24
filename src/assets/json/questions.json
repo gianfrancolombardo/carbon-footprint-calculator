@@ -12,25 +12,25 @@
                 "value": 2.0084,
                 "min": 0.47,
                 "max": 3.565,
-                "text": "Usar coche eléctrico"
+                "text": "Coche eléctrico"
             },
             {
                 "value": 0.729,
                 "min": 0.145,
                 "max": 1.23,
-                "text": "Usar coche híbrido"
+                "text": "Coche híbrido"
             },
             {
                 "value": 0.0024,
                 "min": -1.265,
                 "max": 0.86,
-                "text": "Usar coche de hidrógeno"
+                "text": "Coche de hidrógeno"
             },
             {
                 "value": 0.994,
                 "min": 0.48,
                 "max": 1.23,
-                "text": "Usa solo transporte público"
+                "text": "Solo transporte público"
             },
             {
                 "value": 0.317,
@@ -95,28 +95,17 @@
                 "text": "Vegetariana (nada de carne ni pescado)"
             },
             {
-                "value": 0.22,
-                "min": 0.025,
-                "max": 0.3,
-                "text": "Reducir el consumo de productos de origen animal"
-            },
-            {
                 "value": 0.48,
                 "min": 0.13,
                 "max": 0.56,
                 "text": "Dejar de comer ternera, cerdo y cordero para solo comer pollo y similares"
-            }
-        ]
-    },
-    {
-        "question": "¿Seguirías una dieta nutricional correcta?",
-        "options": [
+            },
             {
-                "value": 0.28,
-                "min": 0.14,
+                "value": 0.22,
+                "min": 0.025,
                 "max": 0.3,
-                "text": "Si"
-            }
+                "text": "Reducir el consumo de productos de origen animal"
+            }  
         ]
     },
     {
